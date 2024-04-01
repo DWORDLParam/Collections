@@ -1,0 +1,8 @@
+Git test file
+
+String 001
+String 002
+String 003
+
+New String 001
+New String 002
