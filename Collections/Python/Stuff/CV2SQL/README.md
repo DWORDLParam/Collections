@@ -1,0 +1,1 @@
+CV2SQL - утилита для преобразования CalculationView HANA (xml) в sql скрипт 
