@@ -1,7 +1,7 @@
 -- Завершает процесс по PID
--- DROP FUNCTION myschema.cancel_backend(int4, text);
+-- DROP FUNCTION schema.cancel_backend(int4, text);
 
-CREATE OR REPLACE FUNCTION myschema.cancel_backend(p_pid int4, p_message text)
+CREATE OR REPLACE FUNCTION schema.cancel_backend(p_pid int4, p_message text)
 	RETURNS text
 	LANGUAGE plpgsql
 	VOLATILE
@@ -39,7 +39,7 @@ begin
                else 'Не удалось отменить процесс ' || p_pid::text end
     into v_message;
 
-    perform logs.gpetl_log(case when v_action_result then 'INFO' else 'ERROR' end, v_message, 'service.cancel_backend',
+    perform schema.gpetl_log(case when v_action_result then 'INFO' else 'ERROR' end, v_message, 'schema.cancel_backend',
                            null, null);
     return v_message;
 end
