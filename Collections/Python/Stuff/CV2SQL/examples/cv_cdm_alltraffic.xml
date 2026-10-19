@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<View:ColumnView xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Column="http://www.sap.com/ndb/DataModelFilter.ecore" xmlns:Type="http://www.sap.com/ndb/DataModelType.ecore" xmlns:View="http://www.sap.com/ndb/ViewModelView.ecore" schemaVersion="2.3" name="CV_CDM_ALLTRAFFIC" dataCategory="CUBE" hierarchiesSQLEnabled="false" defaultNode="#//Aggregation" clientDependent="true" applyPrivilegeType="ANALYTIC_PRIVILEGE" translationRelevant="true">
+  <endUserTexts label="CV_CDM_ALLTRAFFIC"/>
+  <origin/>
+  <executionHints/>
+  <viewNode xsi:type="View:Aggregation" name="A_Traffic_Offline">
+    <endUserTexts label=" "/>
+    <element name="ZTRADEMRK" transparentFilter="false">
+      <endUserTexts label="Бренд Сафмар Ритейл (торговая марка)"/>
+      <inlineType primitiveType="NVARCHAR" length="1" precision="1" scale="0"/>
+    </element>
+    <element name="CALDAY">
+      <endUserTexts label="Календарный день"/>
+      <inlineType primitiveType="NVARCHAR" length="8" precision="8" scale="0"/>
+    </element>
+    <element name="CALWEEK">
+      <endUserTexts label="Календарный год/неделя"/>
+      <inlineType primitiveType="NVARCHAR" length="6" precision="6" scale="0"/>
+    </element>
+    <element name="CALMONTH">
+      <endUserTexts label="Календарный год/месяц"/>
+      <inlineType primitiveType="NVARCHAR" length="6" precision="6" scale="0"/>
+    </element>
+    <element name="CALYEAR">
+      <endUserTexts label="Календарный год"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT">
+      <endUserTexts label="Магазин"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZCOBJ_TP">
+      <endUserTexts label="Магазин/Склад (Завод). Объект компании: Тип"/>
+      <inlineType primitiveType="NVARCHAR" length="3" precision="3" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZCITY">
+      <endUserTexts label="Магазин/Склад (Завод). Город"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZASM">
+      <endUserTexts label="Магазин/Склад (Завод). ASM"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZASM_DIV">
+      <endUserTexts label="Магазин/Склад (Завод). ASM Дивизион"/>
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZASM_DIVP">
+      <endUserTexts label="Магазин/Склад (Завод). ASM Дивизион Единый"/>
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZLOGREG">
+      <endUserTexts label="Магазин/Склад (Завод). Логистический регион"/>
+      <inlineType primitiveType="NVARCHAR" length="3" precision="3" scale="0"/>
+    </element>
+    <element name="Traffic_wo_RTD" aggregationBehavior="SUM">
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="Traffic_Offline" aggregationBehavior="SUM">
+      <endUserTexts label="Трафик магазинов"/>
+      <inlineType primitiveType="DECIMAL" length="18" precision="18" scale="0"/>
+    </element>
+    <input>
+      <entity>#//mv.cdm.08_datamart::CV_CDM_08_AUTHSHARE</entity>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZTRADEMRK" sourceName="ZTRADEMRK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALDAY" sourceName="CALDAY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALWEEK" sourceName="CALWEEK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALMONTH" sourceName="CALMONTH"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALYEAR" sourceName="CALYEAR"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT" sourceName="ZPLANT"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZCOBJ_TP" sourceName="ZPLANT__ZCOBJ_TP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZCITY" sourceName="ZPLANT__ZCITY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM" sourceName="ZPLANT__ZASM"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM_DIV" sourceName="ZPLANT__ZASM_DIV"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM_DIVP" sourceName="ZPLANT__ZASM_DIVP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZLOGREG" sourceName="ZPLANT__ZLOGREG"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="Traffic_wo_RTD" sourceName="Traffic_wo_RTD"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="Traffic_Offline" sourceName="Traffic_Offline"/>
+    </input>
+    <layout xCoordinate="22" yCoordinate="353" width="-1" height="-1" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:Aggregation" name="A_Traffic_RTD">
+    <endUserTexts label=" "/>
+    <element name="ZTRADEMRK" transparentFilter="false">
+      <endUserTexts label="Бренд Сафмар Ритейл (торговая марка)"/>
+      <inlineType primitiveType="NVARCHAR" length="1" precision="1" scale="0"/>
+    </element>
+    <element name="CALDAY">
+      <endUserTexts label="Календарный день"/>
+      <inlineType primitiveType="NVARCHAR" length="8" precision="8" scale="0"/>
+    </element>
+    <element name="CALWEEK">
+      <endUserTexts label="Календарный год/неделя"/>
+      <inlineType primitiveType="NVARCHAR" length="6" precision="6" scale="0"/>
+    </element>
+    <element name="CALMONTH">
+      <endUserTexts label="Календарный год/месяц"/>
+      <inlineType primitiveType="NVARCHAR" length="6" precision="6" scale="0"/>
+    </element>
+    <element name="CALYEAR">
+      <endUserTexts label="Календарный год"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT">
+      <endUserTexts label="Магазин"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZCOBJ_TP">
+      <endUserTexts label="Магазин/Склад (Завод). Объект компании: Тип"/>
+      <inlineType primitiveType="NVARCHAR" length="3" precision="3" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZCITY">
+      <endUserTexts label="Магазин/Склад (Завод). Город"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZASM">
+      <endUserTexts label="Магазин/Склад (Завод). ASM"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZASM_DIV">
+      <endUserTexts label="Магазин/Склад (Завод). ASM Дивизион"/>
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZASM_DIVP">
+      <endUserTexts label="Магазин/Склад (Завод). ASM Дивизион Единый"/>
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZLOGREG">
+      <endUserTexts label="Магазин/Склад (Завод). Логистический регион"/>
+      <inlineType primitiveType="NVARCHAR" length="3" precision="3" scale="0"/>
+    </element>
+    <element name="Count_Client_Auth" aggregationBehavior="SUM">
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <input>
+      <entity>#//mv.cdm.08_datamart::CV_CDM_08_AUTHSHARE</entity>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZTRADEMRK" sourceName="ZTRADEMRK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALDAY" sourceName="CALDAY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALWEEK" sourceName="CALWEEK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALMONTH" sourceName="CALMONTH"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALYEAR" sourceName="CALYEAR"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT" sourceName="ZPLANT"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZCOBJ_TP" sourceName="ZPLANT__ZCOBJ_TP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZCITY" sourceName="ZPLANT__ZCITY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM" sourceName="ZPLANT__ZASM"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM_DIV" sourceName="ZPLANT__ZASM_DIV"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM_DIVP" sourceName="ZPLANT__ZASM_DIVP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZLOGREG" sourceName="ZPLANT__ZLOGREG"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="Count_Client_Auth" sourceName="Count_Client_Auth"/>
+    </input>
+    <layout xCoordinate="176" yCoordinate="353" width="-1" height="-1" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:Aggregation" name="A_Traffic_Other">
+    <endUserTexts label=" "/>
+    <element name="ZTRADEMRK">
+      <endUserTexts label="Бренд Сафмар Ритейл (торговая марка)"/>
+      <inlineType primitiveType="NVARCHAR" length="1" precision="1" scale="0"/>
+    </element>
+    <element name="CALDAY">
+      <endUserTexts label="Календарный день"/>
+      <inlineType primitiveType="NVARCHAR" length="8" precision="8" scale="0"/>
+    </element>
+    <element name="CALWEEK">
+      <endUserTexts label="Календарный год/неделя"/>
+      <inlineType primitiveType="NVARCHAR" length="6" precision="6" scale="0"/>
+    </element>
+    <element name="CALMONTH">
+      <endUserTexts label="Календарный год/месяц"/>
+      <inlineType primitiveType="NVARCHAR" length="6" precision="6" scale="0"/>
+    </element>
+    <element name="CALYEAR">
+      <endUserTexts label="Календарный год"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZENGAGCH4">
+      <endUserTexts label="Канал привлечения: уровень 4 (детальный)"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT">
+      <endUserTexts label="Магазин"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZCOBJ_TP">
+      <endUserTexts label="Магазин/Склад (Завод). Объект компании: Тип"/>
+      <inlineType primitiveType="NVARCHAR" length="3" precision="3" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZCITY">
+      <endUserTexts label="Магазин/Склад (Завод). Город"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZASM">
+      <endUserTexts label="Магазин/Склад (Завод). ASM"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZASM_DIV">
+      <endUserTexts label="Магазин/Склад (Завод). ASM Дивизион"/>
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZASM_DIVP">
+      <endUserTexts label="Магазин/Склад (Завод). ASM Дивизион Единый"/>
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZLOGREG">
+      <endUserTexts label="Магазин/Склад (Завод). Логистический регион"/>
+      <inlineType primitiveType="NVARCHAR" length="3" precision="3" scale="0"/>
+    </element>
+    <element name="Traffic" aggregationBehavior="SUM">
+      <endUserTexts label="Трафик"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <elementFilter elementName="ZENGAGCH4">
+      <valueFilter xsi:type="Column:ListValueFilter" operator="IN" including="false">
+        <operands value="4010"/>
+        <operands value="4020"/>
+        <operands value="4030"/>
+        <operands value="4040"/>
+        <operands value="4050"/>
+      </valueFilter>
+    </elementFilter>
+    <input>
+      <entity>#//mv.cdm.99_reuse::CV_CDM_ALLSALES_EXC</entity>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZTRADEMRK" sourceName="_BIC_ZTRADEMRK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALDAY" sourceName="CALDAY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALWEEK" sourceName="CALWEEK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALMONTH" sourceName="CALMONTH"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALYEAR" sourceName="CALYEAR"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZENGAGCH4" sourceName="ZENGAGCH4"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT" sourceName="ZPLANT"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZCOBJ_TP" sourceName="ZPLANT__ZCOBJ_TP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZCITY" sourceName="ZPLANT__ZCITY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM" sourceName="ZPLANT__ZASM"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM_DIV" sourceName="ZPLANT__ZASM_DIV"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM_DIVP" sourceName="ZASM_DIVP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZLOGREG" sourceName="ZPLANT__ZLOGREG"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="Traffic" sourceName="CountCheckAll"/>
+    </input>
+    <layout xCoordinate="792" yCoordinate="353" width="-1" height="-1" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:Aggregation" name="A_Traffic_CC">
+    <endUserTexts label=" "/>
+    <element name="ZTRADEMRK">
+      <endUserTexts label="Бренд Сафмар Ритейл (торговая марка)"/>
+      <inlineType primitiveType="NVARCHAR" length="1" precision="1" scale="0"/>
+    </element>
+    <element name="CALDAY">
+      <endUserTexts label="Календарный день"/>
+      <inlineType primitiveType="NVARCHAR" length="8" precision="8" scale="0"/>
+    </element>
+    <element name="CALWEEK">
+      <endUserTexts label="Календарный год/неделя"/>
+      <inlineType primitiveType="NVARCHAR" length="6" precision="6" scale="0"/>
+    </element>
+    <element name="CALMONTH">
+      <endUserTexts label="Календарный год/месяц"/>
+      <inlineType primitiveType="NVARCHAR" length="6" precision="6" scale="0"/>
+    </element>
+    <element name="CALYEAR">
+      <endUserTexts label="Календарный год"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="KEY_FIG_TYPE">
+      <inlineType primitiveType="NVARCHAR" length="30" precision="30" scale="0"/>
+    </element>
+    <element name="Traffic" aggregationBehavior="SUM">
+      <endUserTexts label="Трафик"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <elementFilter elementName="KEY_FIG_TYPE">
+      <valueFilter xsi:type="Column:SingleValueFilter" including="true" value="FACT"/>
+    </elementFilter>
+    <input>
+      <entity>#//mv.cvt.adso::CVT_AZDM_312</entity>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZTRADEMRK" sourceName="ZTRADEMRK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALDAY" sourceName="CALDAY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALWEEK" sourceName="CALWEEK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALMONTH" sourceName="CALMONTH"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALYEAR" sourceName="CALYEAR"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="KEY_FIG_TYPE" sourceName="KEY_FIG_TYPE"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="Traffic" sourceName="Traffic"/>
+    </input>
+    <layout xCoordinate="638" yCoordinate="353" width="-1" height="-1" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:Aggregation" name="A_Traffic_Web">
+    <endUserTexts label=" ">
+      <comment text="DD-5750 добавлен канал привлечения &quot;сайт&quot; для вэб-трафика"/>
+    </endUserTexts>
+    <element name="ZTRADEMRK">
+      <endUserTexts label="Бренд Сафмар Ритейл (торговая марка)"/>
+      <inlineType primitiveType="NVARCHAR" length="1" precision="1" scale="0"/>
+    </element>
+    <element name="ZCITY">
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="CALDAY">
+      <endUserTexts label="Календарный день"/>
+      <inlineType primitiveType="NVARCHAR" length="8" precision="8" scale="0"/>
+    </element>
+    <element name="CALWEEK">
+      <endUserTexts label="Календарный год/неделя"/>
+      <inlineType primitiveType="NVARCHAR" length="6" precision="6" scale="0"/>
+    </element>
+    <element name="CALMONTH">
+      <endUserTexts label="Календарный год/месяц"/>
+      <inlineType primitiveType="NVARCHAR" length="6" precision="6" scale="0"/>
+    </element>
+    <element name="CALYEAR">
+      <endUserTexts label="Календарный год"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZASM_DIV">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ZASM_DIVP">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ZASM">
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZBQ_CNT" aggregationBehavior="SUM">
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ZENGAGCH4">
+      <endUserTexts label="Канал привлечения: уровень 4 (детальный)"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <input>
+      <entity>#//mv.cdm.99_reuse::CV_CDM_TRAFFICWEB_BQ_HOURLY</entity>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZTRADEMRK" sourceName="ZTRADEMRK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZCITY" sourceName="ZCITY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALDAY" sourceName="CALDAY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALWEEK" sourceName="CALWEEK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALMONTH" sourceName="CALMONTH"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALYEAR" sourceName="CALYEAR"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZASM_DIV" sourceName="ZASM_DIV"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZASM_DIVP" sourceName="ZASM_DIVP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZASM" sourceName="ZASM"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZBQ_CNT" sourceName="ZBQ_CNT"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZENGAGCH4" sourceName="ZENGAGCH4"/>
+    </input>
+    <layout xCoordinate="480" yCoordinate="359" width="-1" height="-1" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:Aggregation" name="A_Traffic_APP">
+    <endUserTexts label=" ">
+      <comment text="DD-3866 Обновлённый источник для APP-Трафика с каналом привлечения МПК и признаком &quot;Платформа МПК&quot;"/>
+    </endUserTexts>
+    <element name="CALDAY">
+      <endUserTexts label="Календарный день"/>
+      <inlineType primitiveType="NVARCHAR" length="8" precision="8" scale="0"/>
+    </element>
+    <element name="CALWEEK">
+      <endUserTexts label="Календарный год/неделя"/>
+      <inlineType primitiveType="NVARCHAR" length="6" precision="6" scale="0"/>
+    </element>
+    <element name="CALMONTH">
+      <endUserTexts label="Календарный год/месяц"/>
+      <inlineType primitiveType="NVARCHAR" length="6" precision="6" scale="0"/>
+    </element>
+    <element name="CALYEAR">
+      <endUserTexts label="Календарный год"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="zengagch4">
+      <inlineType primitiveType="VARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZCITY" transparentFilter="false">
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZTRADEMRK" transparentFilter="false">
+      <endUserTexts label="Бренд Сафмар Ритейл (торговая марка)"/>
+      <inlineType primitiveType="NVARCHAR" length="1" precision="1" scale="0"/>
+    </element>
+    <element name="ZPLATFORM" transparentFilter="false">
+      <endUserTexts label="ZPLATFORM"/>
+      <inlineType primitiveType="NVARCHAR" length="250" precision="250" scale="0"/>
+    </element>
+    <element name="DAU_APP" aggregationBehavior="SUM">
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ZASM_DIV">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ZASM_DIVP">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ZASM">
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <input>
+      <entity>#//mv.cdm.99_reuse::CV_CDM_TRAFFIC_APP</entity>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALDAY" sourceName="CALDAY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALWEEK" sourceName="CALWEEK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALMONTH" sourceName="CALMONTH"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALYEAR" sourceName="CALYEAR"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="zengagch4" sourceName="zengagch4"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZCITY" sourceName="ZCITY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZTRADEMRK" sourceName="ZTRADEMRK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLATFORM" sourceName="ZPLATFORM"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="DAU_APP" sourceName="DAU_APP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZASM_DIV" sourceName="ZASM_DIV"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZASM_DIVP" sourceName="ZASM_DIVP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZASM" sourceName="ZASM"/>
+    </input>
+    <layout xCoordinate="330" yCoordinate="359" width="-1" height="-1" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:Union" name="Union_1">
+    <endUserTexts label=" "/>
+    <element name="ZENGAGCH4">
+      <endUserTexts label="Канал привлечения: уровень 4 (детальный)"/>
+      <type xsi:type="Type:SimpleType">#//Union_1/ZENGAGCH4/@inlineType</type>
+      <inlineType name="NVARCHAR" primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT" transparentFilter="false">
+      <endUserTexts label="Магазин"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZCOBJ_TP" transparentFilter="false">
+      <endUserTexts label="Магазин/Склад (Завод). Объект компании: Тип"/>
+      <inlineType primitiveType="NVARCHAR" length="3" precision="3" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZLOGREG" transparentFilter="false">
+      <endUserTexts label="Магазин/Склад (Завод). Логистический регион"/>
+      <inlineType primitiveType="NVARCHAR" length="3" precision="3" scale="0"/>
+    </element>
+    <element name="Traffic_Offline" transparentFilter="false">
+      <endUserTexts label="Трафик магазинов"/>
+      <inlineType primitiveType="DECIMAL" length="18" precision="18" scale="0"/>
+    </element>
+    <element name="ZTRADEMRK">
+      <endUserTexts label="Бренд Сафмар Ритейл (торговая марка)"/>
+      <inlineType primitiveType="NVARCHAR" length="1" precision="1" scale="0"/>
+    </element>
+    <element name="CALDAY">
+      <endUserTexts label="Календарный день"/>
+      <inlineType primitiveType="NVARCHAR" length="8" precision="8" scale="0"/>
+    </element>
+    <element name="CALWEEK">
+      <endUserTexts label="Календарный год/неделя"/>
+      <inlineType primitiveType="NVARCHAR" length="6" precision="6" scale="0"/>
+    </element>
+    <element name="CALMONTH">
+      <endUserTexts label="Календарный год/месяц"/>
+      <inlineType primitiveType="NVARCHAR" length="6" precision="6" scale="0"/>
+    </element>
+    <element name="CALYEAR">
+      <endUserTexts label="Календарный год"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZCITY" transparentFilter="false">
+      <endUserTexts label="Магазин/Склад (Завод). Город"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZASM" transparentFilter="false">
+      <endUserTexts label="Магазин/Склад (Завод). ASM"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZASM_DIV" transparentFilter="false">
+      <endUserTexts label="Магазин/Склад (Завод). ASM Дивизион"/>
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZASM_DIVP" transparentFilter="false">
+      <endUserTexts label="Магазин/Склад (Завод). ASM Дивизион Единый"/>
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="Traffic" transparentFilter="false">
+      <endUserTexts label="Трафик"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ZPLATFORM" transparentFilter="false">
+      <endUserTexts label="ZPLATFORM"/>
+      <inlineType primitiveType="NVARCHAR" length="250" precision="250" scale="0"/>
+    </element>
+    <input emptyUnionBehavior="NO_ROW">
+      <viewNode xsi:type="View:Aggregation">#//A_Traffic_Offline</viewNode>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="ZENGAGCH4" value="4010" null="false"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT" sourceName="ZPLANT"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZCOBJ_TP" sourceName="ZPLANT__ZCOBJ_TP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZLOGREG" sourceName="ZPLANT__ZLOGREG"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="Traffic_Offline" sourceName="Traffic_Offline"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZTRADEMRK" sourceName="ZTRADEMRK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALDAY" sourceName="CALDAY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALWEEK" sourceName="CALWEEK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALMONTH" sourceName="CALMONTH"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALYEAR" sourceName="CALYEAR"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZCITY" sourceName="ZPLANT__ZCITY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM" sourceName="ZPLANT__ZASM"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM_DIV" sourceName="ZPLANT__ZASM_DIV"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM_DIVP" sourceName="ZPLANT__ZASM_DIVP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="Traffic" sourceName="Traffic_wo_RTD"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="ZPLATFORM" value="" null="true"/>
+    </input>
+    <input emptyUnionBehavior="NO_ROW">
+      <viewNode xsi:type="View:Aggregation">#//A_Traffic_RTD</viewNode>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="ZENGAGCH4" value="4020" null="false"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT" sourceName="ZPLANT"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZCOBJ_TP" sourceName="ZPLANT__ZCOBJ_TP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZLOGREG" sourceName="ZPLANT__ZLOGREG"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="Traffic_Offline" value="" null="true"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZTRADEMRK" sourceName="ZTRADEMRK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALDAY" sourceName="CALDAY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALWEEK" sourceName="CALWEEK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALMONTH" sourceName="CALMONTH"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALYEAR" sourceName="CALYEAR"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZCITY" sourceName="ZPLANT__ZCITY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM" sourceName="ZPLANT__ZASM"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM_DIV" sourceName="ZPLANT__ZASM_DIV"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM_DIVP" sourceName="ZPLANT__ZASM_DIVP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="Traffic" sourceName="Count_Client_Auth"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="ZPLATFORM" value="" null="true"/>
+    </input>
+    <input emptyUnionBehavior="NO_ROW">
+      <viewNode xsi:type="View:Aggregation">#//A_Traffic_CC</viewNode>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="ZENGAGCH4" value="4050" null="false"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="ZPLANT" value="" null="true"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="ZPLANT__ZCOBJ_TP" value="" null="true"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="ZPLANT__ZLOGREG" value="" null="true"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="Traffic_Offline" value="" null="true"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZTRADEMRK" sourceName="ZTRADEMRK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALDAY" sourceName="CALDAY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALWEEK" sourceName="CALWEEK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALMONTH" sourceName="CALMONTH"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALYEAR" sourceName="CALYEAR"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="ZPLANT__ZCITY" value="" null="true"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="ZPLANT__ZASM" value="" null="true"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="ZPLANT__ZASM_DIV" value="" null="true"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="ZPLANT__ZASM_DIVP" value="" null="true"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="Traffic" sourceName="Traffic"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="ZPLATFORM" value="" null="true"/>
+    </input>
+    <input emptyUnionBehavior="NO_ROW">
+      <viewNode xsi:type="View:Aggregation">#//A_Traffic_Other</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZENGAGCH4" sourceName="ZENGAGCH4"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT" sourceName="ZPLANT"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZCOBJ_TP" sourceName="ZPLANT__ZCOBJ_TP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZLOGREG" sourceName="ZPLANT__ZLOGREG"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="Traffic_Offline" value="" null="true"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZTRADEMRK" sourceName="ZTRADEMRK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALDAY" sourceName="CALDAY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALWEEK" sourceName="CALWEEK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALMONTH" sourceName="CALMONTH"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALYEAR" sourceName="CALYEAR"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZCITY" sourceName="ZPLANT__ZCITY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM" sourceName="ZPLANT__ZASM"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM_DIV" sourceName="ZPLANT__ZASM_DIV"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM_DIVP" sourceName="ZPLANT__ZASM_DIVP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="Traffic" sourceName="Traffic"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="ZPLATFORM" value="" null="true"/>
+    </input>
+    <input emptyUnionBehavior="NO_ROW">
+      <viewNode xsi:type="View:Aggregation">#//A_Traffic_Web</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZENGAGCH4" sourceName="ZENGAGCH4"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="ZPLANT" value="" null="true"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="ZPLANT__ZCOBJ_TP" value="" null="true"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="ZPLANT__ZLOGREG" value="" null="true"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="Traffic_Offline" value="" null="true"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZTRADEMRK" sourceName="ZTRADEMRK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALDAY" sourceName="CALDAY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALWEEK" sourceName="CALWEEK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALMONTH" sourceName="CALMONTH"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALYEAR" sourceName="CALYEAR"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZCITY" sourceName="ZCITY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM" sourceName="ZASM"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM_DIV" sourceName="ZASM_DIV"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM_DIVP" sourceName="ZASM_DIVP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="Traffic" sourceName="ZBQ_CNT"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="ZPLATFORM" value="" null="true"/>
+    </input>
+    <input emptyUnionBehavior="NO_ROW">
+      <viewNode xsi:type="View:Aggregation">#//A_Traffic_APP</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZENGAGCH4" sourceName="zengagch4"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="ZPLANT" value="" null="true"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="ZPLANT__ZCOBJ_TP" value="" null="true"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="ZPLANT__ZLOGREG" value="" null="true"/>
+      <mapping xsi:type="Type:ConstantElementMapping" targetName="Traffic_Offline" value="" null="true"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZTRADEMRK" sourceName="ZTRADEMRK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALDAY" sourceName="CALDAY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALWEEK" sourceName="CALWEEK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALMONTH" sourceName="CALMONTH"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALYEAR" sourceName="CALYEAR"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZCITY" sourceName="ZCITY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM" sourceName="ZASM"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM_DIV" sourceName="ZASM_DIV"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM_DIVP" sourceName="ZASM_DIVP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="Traffic" sourceName="DAU_APP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLATFORM" sourceName="ZPLATFORM"/>
+    </input>
+    <layout xCoordinate="407" yCoordinate="165" width="-1" height="-1" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:JoinNode" name="Join_1" joinOrder="OUTSIDE_IN">
+    <endUserTexts label=" "/>
+    <element name="ZTRADEMRK">
+      <endUserTexts label="Бренд Сафмар Ритейл (торговая марка)"/>
+      <inlineType primitiveType="NVARCHAR" length="1" precision="1" scale="0"/>
+    </element>
+    <element name="CALDAY">
+      <endUserTexts label="Календарный день"/>
+      <inlineType primitiveType="NVARCHAR" length="8" precision="8" scale="0"/>
+    </element>
+    <element name="CALWEEK">
+      <endUserTexts label="Календарный год/неделя"/>
+      <inlineType primitiveType="NVARCHAR" length="6" precision="6" scale="0"/>
+    </element>
+    <element name="CALMONTH">
+      <endUserTexts label="Календарный год/месяц"/>
+      <inlineType primitiveType="NVARCHAR" length="6" precision="6" scale="0"/>
+    </element>
+    <element name="CALYEAR">
+      <endUserTexts label="Календарный год"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZENGAGCH4">
+      <endUserTexts label="Канал привлечения: уровень 4 (детальный)"/>
+      <inlineType name="NVARCHAR" primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT" transparentFilter="false">
+      <endUserTexts label="Магазин"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZCOBJ_TP" transparentFilter="false">
+      <endUserTexts label="Магазин/Склад (Завод). Объект компании: Тип"/>
+      <inlineType primitiveType="NVARCHAR" length="3" precision="3" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZCITY" transparentFilter="false">
+      <endUserTexts label="Магазин/Склад (Завод). Город"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZASM" transparentFilter="false">
+      <endUserTexts label="Магазин/Склад (Завод). ASM"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZASM_DIV" transparentFilter="false">
+      <endUserTexts label="Магазин/Склад (Завод). ASM Дивизион"/>
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZASM_DIVP" transparentFilter="false">
+      <endUserTexts label="Магазин/Склад (Завод). ASM Дивизион Единый"/>
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZLOGREG" transparentFilter="false">
+      <endUserTexts label="Магазин/Склад (Завод). Логистический регион"/>
+      <inlineType primitiveType="NVARCHAR" length="3" precision="3" scale="0"/>
+    </element>
+    <element name="Traffic_Offline">
+      <endUserTexts label="Трафик магазинов"/>
+      <inlineType primitiveType="DECIMAL" length="18" precision="18" scale="0"/>
+    </element>
+    <element name="ZASMP">
+      <endUserTexts label="ZASMP"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="Traffic" transparentFilter="false">
+      <endUserTexts label="Трафик"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ZPLATFORM" transparentFilter="false">
+      <endUserTexts label="ZPLATFORM"/>
+      <inlineType primitiveType="NVARCHAR" length="250" precision="250" scale="0"/>
+    </element>
+    <input>
+      <viewNode xsi:type="View:Union">#//Union_1</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZTRADEMRK" sourceName="ZTRADEMRK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALDAY" sourceName="CALDAY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALWEEK" sourceName="CALWEEK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALMONTH" sourceName="CALMONTH"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALYEAR" sourceName="CALYEAR"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZENGAGCH4" sourceName="ZENGAGCH4"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT" sourceName="ZPLANT"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZCOBJ_TP" sourceName="ZPLANT__ZCOBJ_TP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZCITY" sourceName="ZPLANT__ZCITY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM" sourceName="ZPLANT__ZASM"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM_DIV" sourceName="ZPLANT__ZASM_DIV"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM_DIVP" sourceName="ZPLANT__ZASM_DIVP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZLOGREG" sourceName="ZPLANT__ZLOGREG"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="Traffic_Offline" sourceName="Traffic_Offline"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="Traffic" sourceName="Traffic"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLATFORM" sourceName="ZPLATFORM"/>
+    </input>
+    <input>
+      <entity>#//mv.cvt.iobj.ab::CVT_ZASM</entity>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZASMP" sourceName="ZASMP"/>
+    </input>
+    <layout xCoordinate="407" yCoordinate="70" width="0" height="0" expanded="true"/>
+    <join leftInput="#//Join_1/Union_1" rightInput="#//Join_1/mv.cvt.iobj.ab::CVT_ZASM" joinType="leftOuter" cardinality="CN_1" optimizeJoinColumns="true">
+      <leftElementName>ZPLANT__ZASM</leftElementName>
+      <rightElementName>ZASM</rightElementName>
+    </join>
+  </viewNode>
+  <viewNode xsi:type="View:Aggregation" name="Aggregation">
+    <element name="ZTRADEMRK" aggregationBehavior="NONE" drillDownEnablement="DRILL_DOWN">
+      <endUserTexts label="Бренд Сафмар Ритейл (торговая марка)"/>
+      <inlineType primitiveType="NVARCHAR" length="1" precision="1" scale="0"/>
+    </element>
+    <element name="CALDAY" aggregationBehavior="NONE" drillDownEnablement="DRILL_DOWN">
+      <endUserTexts label="Календарный день"/>
+      <inlineType primitiveType="NVARCHAR" length="8" precision="8" scale="0"/>
+    </element>
+    <element name="CALWEEK" aggregationBehavior="NONE" drillDownEnablement="DRILL_DOWN">
+      <endUserTexts label="Календарный год/неделя"/>
+      <inlineType primitiveType="NVARCHAR" length="6" precision="6" scale="0"/>
+    </element>
+    <element name="CALMONTH" aggregationBehavior="NONE" drillDownEnablement="DRILL_DOWN">
+      <endUserTexts label="Календарный год/месяц"/>
+      <inlineType primitiveType="NVARCHAR" length="6" precision="6" scale="0"/>
+    </element>
+    <element name="CALYEAR" aggregationBehavior="NONE" drillDownEnablement="DRILL_DOWN">
+      <endUserTexts label="Календарный год"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZENGAGCH4" aggregationBehavior="NONE" drillDownEnablement="DRILL_DOWN">
+      <endUserTexts label="Канал привлечения: уровень 4 (детальный)"/>
+      <inlineType name="NVARCHAR" primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT" transparentFilter="false" aggregationBehavior="NONE" drillDownEnablement="DRILL_DOWN">
+      <endUserTexts label="Магазин"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZCOBJ_TP" transparentFilter="false" aggregationBehavior="NONE" drillDownEnablement="DRILL_DOWN">
+      <endUserTexts label="Магазин/Склад (Завод). Объект компании: Тип"/>
+      <inlineType primitiveType="NVARCHAR" length="3" precision="3" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZCITY" transparentFilter="false" aggregationBehavior="NONE" drillDownEnablement="DRILL_DOWN">
+      <endUserTexts label="Магазин/Склад (Завод). Город"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZASM" transparentFilter="false" aggregationBehavior="NONE" drillDownEnablement="DRILL_DOWN">
+      <endUserTexts label="Магазин/Склад (Завод). ASM"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZASM_DIV" transparentFilter="false" aggregationBehavior="NONE" drillDownEnablement="DRILL_DOWN">
+      <endUserTexts label="Магазин/Склад (Завод). ASM Дивизион"/>
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZASM_DIVP" transparentFilter="false" aggregationBehavior="NONE" drillDownEnablement="DRILL_DOWN">
+      <endUserTexts label="Магазин/Склад (Завод). ASM Дивизион Единый"/>
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ZPLANT__ZLOGREG" transparentFilter="false" aggregationBehavior="NONE" drillDownEnablement="DRILL_DOWN">
+      <endUserTexts label="Магазин/Склад (Завод). Логистический регион"/>
+      <inlineType primitiveType="NVARCHAR" length="3" precision="3" scale="0"/>
+    </element>
+    <element name="Traffic_Offline" aggregationBehavior="SUM" engineAggregation="SUM">
+      <endUserTexts label="Трафик магазинов"/>
+      <inlineType primitiveType="DECIMAL" length="18" precision="18" scale="0"/>
+    </element>
+    <element name="ZASMP" aggregationBehavior="NONE" drillDownEnablement="DRILL_DOWN">
+      <endUserTexts label="ZASMP"/>
+      <inlineType primitiveType="NVARCHAR" length="4" precision="4" scale="0"/>
+    </element>
+    <element name="Traffic" aggregationBehavior="SUM" engineAggregation="SUM">
+      <endUserTexts label="Трафик"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ZPLATFORM" transparentFilter="false" aggregationBehavior="NONE" drillDownEnablement="DRILL_DOWN">
+      <endUserTexts label="ZPLATFORM"/>
+      <inlineType primitiveType="NVARCHAR" length="250" precision="250" scale="0"/>
+    </element>
+    <input>
+      <viewNode xsi:type="View:JoinNode">#//Join_1</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZTRADEMRK" sourceName="ZTRADEMRK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALDAY" sourceName="CALDAY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALWEEK" sourceName="CALWEEK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALMONTH" sourceName="CALMONTH"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CALYEAR" sourceName="CALYEAR"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZENGAGCH4" sourceName="ZENGAGCH4"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT" sourceName="ZPLANT"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZCOBJ_TP" sourceName="ZPLANT__ZCOBJ_TP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZCITY" sourceName="ZPLANT__ZCITY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM" sourceName="ZPLANT__ZASM"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM_DIV" sourceName="ZPLANT__ZASM_DIV"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZASM_DIVP" sourceName="ZPLANT__ZASM_DIVP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLANT__ZLOGREG" sourceName="ZPLANT__ZLOGREG"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZASMP" sourceName="ZASMP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ZPLATFORM" sourceName="ZPLATFORM"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="Traffic_Offline" sourceName="Traffic_Offline"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="Traffic" sourceName="Traffic"/>
+    </input>
+    <layout xCoordinate="407" yCoordinate="-10" width="0" height="0" expanded="true"/>
+  </viewNode>
+  <viewLayout relativeWidthScenario="50"/>
+</View:ColumnView>
